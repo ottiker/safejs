@@ -18,10 +18,14 @@ Safejs({
 }).then((appInst) => {
 
     // use app instance..
-    app.fs.read(xorAddr, true).then(console.log.bind(console));
+    app.fs.read(address).then(console.log.bind(console));
+
+    // use app instance..
+    app.fs.readUtf8(address).then(console.log.bind(console));
 });
 ```
 
 #### App.fs.read
+#### App.fs.readUtf8
 #### App.fs.write
 #### ...
