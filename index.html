@@ -2,7 +2,7 @@
 <html>
     <head>
         <script type="module">
-            import safe_app from "/index.js"
+            import safe_app from "./index.js"
             safe_app({
                 id: "com.jillix.test.app",
                 name: "WebApp Test",
@@ -15,12 +15,9 @@
 
                 console.log("APP INSTANCE:", app);
 
-                app.idata.write("Hello, Immutable data!")
-                .then((addr) => {
-                    app.idata.read(addr, true).then((data) => {
-                        console.log("IDATA READ:", data);
-                    })
-                })
+                return app.idata.write("Hello, Immutable data!").then(app.idata.readUtf8).then((data) => {
+                    console.log("IDATA READ:", data);
+                });
 
             }).catch(console.error.bind(console));
         </script>
